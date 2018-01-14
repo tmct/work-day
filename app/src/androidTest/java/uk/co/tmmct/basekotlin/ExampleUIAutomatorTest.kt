@@ -44,7 +44,8 @@ class ExampleUIAutomatorTest {
 
     @Test
     fun test() {
-        val helloWorldText = mDevice.findObject(By.res(appPackage, "hello_world")).text
+        val helloWorldElement = mDevice.findObject(By.res(appPackage, "hello_world"))
+        val helloWorldText = helloWorldElement.text
 
         Assert.assertEquals(helloWorldText, "Hello World!")
     }
