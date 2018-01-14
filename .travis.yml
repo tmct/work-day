@@ -1,0 +1,47 @@
+language: android
+
+jdk:
+  - oraclejdk8
+
+before_install:
+- yes | sdkmanager "platforms;android-27"
+
+android:
+  components:
+    - tools # to get the new `repository-11.xml`
+    - tools # to install Android SDK tools 25+, latest, cannot get more granular control than this
+    # See https://github.com/travis-ci/travis-ci/issues/6040#issuecomment-219367943 for more
+    # details.
+    - platform-tools #latest
+    - build-tools-27.0.2
+    - android-27
+    - extra-android-m2repository
+    - extra-android-support
+    - sys-img-armeabi-v7a-android-19
+  licenses:
+    - 'android-sdk-license-.+'
+
+# to accept ConstraintLayout licences (see https://github.com/travis-ci/travis-ci/issues/6617)
+before_install:
+  - mkdir "$ANDROID_HOME/licenses" || true
+  - echo -e "\n8933bad161af4178b1185d1a37fbf41ea5269c55\nd56f5187479451eabf01fb78af6dfcb131a6481e" > "$ANDROID_HOME/licenses/android-sdk-license"
+  - echo -e "\n504667f4c0de7af1a06de9f4b1727b84351f2910" > "$ANDROID_HOME/licenses/android-sdk-preview-license"
+
+branches:
+  except:
+    - gh-pages
+
+sudo: false
+
+before_cache:
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
+    - $HOME/.android/build-cache
+
+script:
+   - ./gradlew test
