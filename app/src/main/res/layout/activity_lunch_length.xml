@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".LunchLengthActivity">
+
+    <Button
+        android:id="@+id/lunch2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="30 min" />
+
+    <Button
+        android:id="@+id/lunch3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="45 min" />
+
+    <Button
+        android:id="@+id/lunch4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="1 hour" />
+
+    <Button
+        android:id="@+id/lunch5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="1 hour 15" />
+
+    <Button
+        android:id="@+id/lunch6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="1 hour 30" />
+</LinearLayout>

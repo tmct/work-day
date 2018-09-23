@@ -16,6 +16,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".StartHourChoiceActivity" />
+        <activity android:name=".StartQuarterHourActivity" />
+        <activity android:name=".LunchLengthActivity" />
+        <activity android:name=".LeavingTimeActivity"></activity>
     </application>
 
 </manifest>
